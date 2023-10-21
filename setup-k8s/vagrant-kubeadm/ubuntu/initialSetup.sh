@@ -2,7 +2,6 @@ export DEBIAN_FRONTEND=noninteractive
 
 echo "[TASK 1] show whoami"
 whoami
-systemctl disable --now ufw >/dev/null 2>&1
 
 echo "[TASK 2] Stop and Disable firewall"
 systemctl disable --now ufw >/dev/null 2>&1
@@ -54,11 +53,7 @@ systemctl daemon-reload
 systemctl restart docker
 systemctl status docker.service
 
-echo "[TASK 7] Installing dependencies"
-apt-get update
-apt-get install -y apt-transport-https ca-certificates curl -y
-
-echo "[TASK 8] Add apt repo for kubernetes"
+echo "[TASK 7] Add apt repo for kubernetes"
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - >/dev/null 2>&1
 apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main" >/dev/null 2>&1
 
