@@ -12,5 +12,4 @@ cat >> /etc/hosts <<EOF
 192.168.56.2 master01
 192.168.56.3 worker01
 192.168.56.4 worker02
-192.168.56.5 worker03
 EOF
